@@ -1,0 +1,73 @@
+<html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<h1>Guest Authentication Form</h1>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">OTP</label>
+    <input type="text" class="form-control" id="code" placeholder="Enter your One Time Password">
+  <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<script>
+
+  var apigClient;
+  apigClient = apigClientFactory.newClient({});
+  
+  AWS.config.region = 'us-east-1'; 
+  
+  //var messages = [], //array that hold the record of each string in chat
+    //lastUserMessage = "", //keeps track of the most recent input string from the user
+    //botMessage = "", //var keeps track of what the chatbot is going to say
+    //botName = 'FoodBot', //name of the chatbot
+    //talking = true; //when false the speach function doesn't work
+    $('#sub').click(function(e) {
+  var name=$("#code").val();
+  //var phone=$("#guestphone").val();
+  console.log(code);
+  //console.log(phone);
+  sdresponse(code)
+    })
+  
+  function sdresponse(code) {
+  
+      return new Promise(function (resolve, reject) {
+        talking = true;
+        let params = {};
+        let additionalParams = {
+          headers: {
+          //"x-api-key" : 'mYVdZgHX193sGTh4XsrN41pMM1kQXwaA4UT62X9u'
+          }
+        };
+        var body = {
+              //"faceid" : 1,
+              "code" : code
+              //"phone" : phone
+        }
+        apigClient.rootPostRequest(params, body, additionalParams)
+        .then(function(result){
+          
+          //reply = result.data.body;
+          //reply = reply.substring(1,reply.length-1);
+          //generate_message(reply,"user");
+          console.log("success");
+          
+        }).catch( function(result){
+          console.log("error");
+          //botMessage = "Couldn't connect"
+          //generate_message(reply,"user");
+          //reject(result);
+          
+  
+        });
+      })
+    }
+  
+  </script>
+</html>
