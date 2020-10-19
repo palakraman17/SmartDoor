@@ -4,6 +4,11 @@ A Smart Door authentication system is a distributed system that authenticates pe
 
 ## Services Used
 
+Lambda, API Gateway, Amazon Rekognition, Kinesis Data Stream, Kinesis Video Stream, DynamoDb, SNS
+
+## Architecture 
+![Smart Door](https://github.com/palakraman17/SmartDoor/blob/master/smart_door.PNG)
+
 ## Prerequisites
 For the JavaScript SDK to work your APIs need to support CORS. The Amazon API Gateway developer guide explains how to [setup CORS for an endpoint]().
 The generated SDK depends on third-party libraries. Include all of the scripts in your webpage
