@@ -1,5 +1,10 @@
 # SmartDoor
-# Prerequisites
+
+A Smart Door authentication system is a distributed system that authenticates people and provides them with access to a virtual door.
+
+## Services Used
+
+## Prerequisites
 For the JavaScript SDK to work your APIs need to support CORS. The Amazon API Gateway developer guide explains how to [setup CORS for an endpoint]().
 The generated SDK depends on third-party libraries. Include all of the scripts in your webpage
 
